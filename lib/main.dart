@@ -16,6 +16,7 @@ void main() {
   );
 }
 
+
 class DicePage extends StatefulWidget {
   @override
   _DicePageState createState() => _DicePageState();
@@ -24,6 +25,11 @@ class DicePage extends StatefulWidget {
 class _DicePageState extends State<DicePage> {
   int leftDice = 6;
   int rightDice = 3;
+
+  void randomDice() {
+    leftDice = Random().nextInt(6) + 1;
+    rightDice = Random().nextInt(6) + 1;
+  }
   @override
   Widget build(BuildContext context) {
 
@@ -35,7 +41,7 @@ class _DicePageState extends State<DicePage> {
               child: Image.asset('images/dice$leftDice.png'),
               onPressed: () {
                 setState(() {
-                  leftDice = Random().nextInt(6) + 1;
+                  randomDice();
                 });
               },
             ),
@@ -45,7 +51,7 @@ class _DicePageState extends State<DicePage> {
               child: Image.asset('images/dice$rightDice.png'),
               onPressed: () {
                 setState(() {
-                  rightDice = Random().nextInt(6) + 1;
+                  randomDice();
                 });
               },
             ),
